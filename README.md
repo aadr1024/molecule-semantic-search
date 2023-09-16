@@ -20,10 +20,21 @@ git config --global user.email "youremail@domain.com"
     ssh-keygen -t ed25519 -C $EMAIL
     ```
 1. **Save SSH Key**: When prompted to enter a file to save the key, press Enter to accept the default file location.
-1. **Add SSH Key to SSH-Agent**: Start the SSH agent and add your key to it.
+1. **Set Passphrase**: Type a secure passphrase when prompted or leave it empty for no passphrase.
+1. **Configure SSH-Agent**: Start the SSH agent and add your key to it.
     ```bash
     eval "$(ssh-agent -s)"
-    ssh-add -K ~/.ssh/id_rsa
+    ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+    ```  
+* Note: If your macOS version is prior to Monterey (12.0), use ssh-add -K ~/.ssh/id_ed25519 instead.
+1. **Modify SSH Config**: Check if ~/.ssh/config exists, and create it if it doesn't.
+    ```touch ~/.ssh/config
+    ``` 
+Add the following lines to the file:
+    ```Host github.com
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/id_ed25519
     ```
 1. **Copy SSH Key to Clipboard**: Run the following command to copy the public SSH key to your clipboard.
     ```bash
@@ -112,9 +123,9 @@ To request an approval, tag Toby and James in the [LinkedIn Group Chat](https://
     - Navigate to your fork on GitHub.
     - Click on "Pull Requests" -> "New Pull Request."
     - Choose the base and compare branches, then click "Create Pull Request."
-10. **Request Review**: Github will enforce a reviewer requirement to merge your pull request. Tag Toby and James in the [LinkedIn Group Chat](https://www.linkedin.com/messaging/thread/2-MjJjYTA2NjMtZDYyYS00Y2RhLWE3YzYtNjAwNjQyNzBlZWM4XzAxMw==/) to request code review.
+1. **Request Review**: Github will enforce a reviewer requirement to merge your pull request. Tag Toby and James in the [LinkedIn Group Chat](https://www.linkedin.com/messaging/thread/2-MjJjYTA2NjMtZDYyYS00Y2RhLWE3YzYtNjAwNjQyNzBlZWM4XzAxMw==/) to request code review.
 
-11. **Squash and Merge**: Once your pull request is approved, perform a "Squash and Merge" to combine your changes into a single commit before adding them to the main branch.
+1. **Squash and Merge**: Once your pull request is approved, perform a "Squash and Merge" to combine your changes into a single commit before adding them to the main branch.
 
 By following these instructions, you're adhering to the repository's policy of using pull requests to make all changes, ensuring code quality and maintainability.
 
