@@ -14,22 +14,22 @@ git config --global user.email "youremail@domain.com"
 ### MacOS
 
 1. **Open Terminal**
-2. **Generate SSH Key**: Generate a new SSH key by running the following command. Replace `your_email@example.com` with your GitHub email.
+1. **Generate SSH Key**: Generate a new SSH key by running the following command. Replace `your_email@example.com` with your GitHub email.
     ```bash
     EMAIL="your_email@example.com"
-    ssh-keygen -t rsa -b 4096 -C $EMAIL
+    ssh-keygen -t ed25519 -C $EMAIL
     ```
-3. **Save SSH Key**: When prompted to enter a file to save the key, press Enter to accept the default file location.
-4. **Add SSH Key to SSH-Agent**: Start the SSH agent and add your key to it.
+1. **Save SSH Key**: When prompted to enter a file to save the key, press Enter to accept the default file location.
+1. **Add SSH Key to SSH-Agent**: Start the SSH agent and add your key to it.
     ```bash
     eval "$(ssh-agent -s)"
     ssh-add -K ~/.ssh/id_rsa
     ```
-5. **Copy SSH Key to Clipboard**: Run the following command to copy the public SSH key to your clipboard.
+1. **Copy SSH Key to Clipboard**: Run the following command to copy the public SSH key to your clipboard.
     ```bash
     pbcopy < ~/.ssh/id_rsa.pub
     ```
-6. **Add SSH Key to GitHub Account**: 
+1. **Add SSH Key to GitHub Account**: 
     - Go to GitHub and log into your account.
     - Click on your profile picture -> Settings -> SSH and GPG keys.
     - Click on the "New SSH key" button and paste your copied public SSH key into the "Key" field.
@@ -37,23 +37,23 @@ git config --global user.email "youremail@domain.com"
 ### Ubuntu Linux
 
 1. **Open Terminal**
-2. **Generate SSH Key**: Generate a new SSH key by running the following command. Replace `your_email@example.com` with your GitHub email.
+1. **Generate SSH Key**: Generate a new SSH key by running the following command. Replace `your_email@example.com` with your GitHub email.
     ```bash
     EMAIL="your_email@example.com"
     ssh-keygen -t rsa -b 4096 -C $EMAIL
     ```
-3. **Save SSH Key**: When prompted to enter a file to save the key, press Enter to accept the default file location.
-4. **Add SSH Key to SSH-Agent**: Start the SSH agent and add your key to it.
+1. **Save SSH Key**: When prompted to enter a file to save the key, press Enter to accept the default file location.
+1. **Add SSH Key to SSH-Agent**: Start the SSH agent and add your key to it.
     ```bash
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_rsa
     ```
-5. **Copy SSH Key to Clipboard**: Install `xclip` if it's not already installed, and copy the public SSH key to your clipboard.
+1. **Copy SSH Key to Clipboard**: Install `xclip` if it's not already installed, and copy the public SSH key to your clipboard.
     ```bash
     sudo apt-get install xclip
     xclip -sel clip < ~/.ssh/id_rsa.pub
     ```
-6. **Add SSH Key to GitHub Account**: 
+1. **Add SSH Key to GitHub Account**: 
     - Go to GitHub and log into your account.
     - Click on your profile picture -> Settings -> SSH and GPG keys.
     - Click on the "New SSH key" button and paste your copied public SSH key into the "Key" field.
@@ -74,7 +74,7 @@ To request an approval, tag Toby and James in the [LinkedIn Group Chat](https://
 ### How to Make a Pull Request from a Fork
 
 1. **Fork the Repository**: Navigate to the "molecule-semantic-search" GitHub page and click on the "Fork" button at the top-right corner.
-2. **Clone Your Fork**: You only need to do this once. Replace `tobkin` with your GitHub username.
+1. **Clone Your Fork**: You only need to do this once. Replace `tobkin` with your GitHub username.
     ```bash
     YOUR_USERNAME="tobkin"
     mkdir -p ~/src/valuestreamai
@@ -82,33 +82,33 @@ To request an approval, tag Toby and James in the [LinkedIn Group Chat](https://
     git clone git@github.com:$YOUR_USERNAME/molecule-semantic-search.git
     ```
     
-3. **Add Remote Upstream**: Add the original repository as a remote called "upstream".
+1. **Add Remote Upstream**: Add the original repository as a remote called "upstream".
     ```bash
     cd ~/src/valuestreamai/molecule-semantic-search
     git remote add upstream git@github.com:valuestreamai/molecule-semantic-search.git
     ```
-4. **Fetch Latest Changes**: Sync your fork with the original repository.
+1. **Fetch Latest Changes**: Sync your fork with the original repository.
     ```bash
     git checkout main
     git fetch upstream
     git merge upstream/main
     ```
-5. **Create a New Feature Branch**: Create and check out a new branch named after your associated Linear Issue, e.g., VSA-16.
+1. **Create a New Feature Branch**: Create and check out a new branch named after your associated Linear Issue, e.g., VSA-16.
     ```bash
     BRANCH="VSA-16"
     git checkout -b $BRANCH
     ```
-6. **Make Changes**: Edit files as needed for your feature or fix.
-7. **Add and Commit Changes**: 
+1. **Make Changes**: Edit files as needed for your feature or fix.
+1. **Add and Commit Changes**: 
     ```bash
     git add .
     git commit -m "Description of changes"
     ```
-8. **Push Changes to Your Fork**: 
+1. **Push Changes to Your Fork**: 
     ```bash
     git push origin $BRANCH
     ```
-9. **Create a Pull Request**: 
+1. **Create a Pull Request**: 
     - Navigate to your fork on GitHub.
     - Click on "Pull Requests" -> "New Pull Request."
     - Choose the base and compare branches, then click "Create Pull Request."
