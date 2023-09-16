@@ -32,10 +32,11 @@ git config --global user.email "youremail@domain.com"
     touch ~/.ssh/config
     ``` 
     Add the following lines to the file:
-    ```Host github.com
-    AddKeysToAgent yes
-    UseKeychain yes
-    IdentityFile ~/.ssh/id_ed25519
+    ```
+    Host github.com
+        AddKeysToAgent yes
+        UseKeychain yes
+        IdentityFile ~/.ssh/id_ed25519
     ```
 1. **Copy SSH Key to Clipboard**: Run the following command to copy the public SSH key to your clipboard.
     ```bash
