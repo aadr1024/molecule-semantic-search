@@ -39,7 +39,7 @@ git config --global user.email "youremail@domain.com"
     ```
 1. **Copy SSH Key to Clipboard**: Run the following command to copy the public SSH key to your clipboard.
     ```bash
-    pbcopy < ~/.ssh/id_rsa.pub
+    pbcopy < ~/.ssh/id_ed25519.pub
     ```
 1. **Add SSH Key to GitHub Account**: 
     - Go to GitHub and log into your account.
