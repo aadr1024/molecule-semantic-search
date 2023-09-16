@@ -26,7 +26,6 @@ git config --global user.email "youremail@domain.com"
     eval "$(ssh-agent -s)"
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519
     ```
-    * Note: If your macOS version is prior to Monterey (12.0), use ssh-add -K ~/.ssh/id_ed25519 instead.
 1. **Modify SSH Config**: Check if ~/.ssh/config exists, and create it if it doesn't.
     ```
     touch ~/.ssh/config
